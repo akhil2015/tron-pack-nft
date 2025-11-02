@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import Head from 'next/head'
 import { CONTRACT_ABI } from '@/lib/contractABI'
 import { CONTRACT_ADDRESS } from '@/lib/contractConfig'
+import Link from 'next/link'
 
 export default function Home() {
   const [tronWeb, setTronWeb] = useState(null)
@@ -372,19 +373,28 @@ export default function Home() {
 
         {/* Header */}
         <header className="relative z-10 border-b border-slate-800 bg-slate-900/50 backdrop-blur-xl">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between items-center py-6">
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-cyan-500 rounded-lg flex items-center justify-center text-2xl">
-                  🎁
-                </div>
-                <div>
-                  <h1 className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
-                    TRON NFT Marketplace
-                  </h1>
-                  <p className="text-xs text-slate-400">Stake · Purchase · Mint</p>
-                </div>
-              </div>
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div className="flex justify-between items-center py-6">
+                            <div className="flex items-center space-x-8">
+                                <div className="flex items-center space-x-3">
+                                    <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-cyan-500 rounded-lg flex items-center justify-center text-2xl">
+                                        🎁
+                                    </div>
+                                    <div>
+                                        <h1 className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+                                            TRON NFT Marketplace
+                                        </h1>
+                                        <p className="text-xs text-slate-400">Stake · Purchase · Mint</p>
+                                    </div>
+                                </div>
+
+                                {/* Add this navigation link */}
+                                <Link href="/how-it-works">
+                                    <div className="text-slate-300 hover:text-white transition-colors text-sm font-medium hidden md:block">
+                                        How It Works
+                                    </div>
+                                </Link>
+                            </div>
               
               {!address ? (
                 <button
